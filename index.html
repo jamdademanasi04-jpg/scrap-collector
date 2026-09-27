@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Scrap Collector — Compare, Sell & Save Nature</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div style="font-size:18px; line-height:1; margin-bottom:2px;">Scrap Collector</div>
+          <div class="footnote">Login → Location → Types → Weights → Compare → Learn → Select Platform → Sell → Confirmation</div>
+        </div>
+      </div>
+
+      <div class="progress" aria-label="Progress">
+        <div class="bar" id="progressBar"></div>
+      </div>
+    </header>
+
+    <main class="grid">
+
+      <div class="between card">
+        <div class="steps" id="stepsDots" aria-label="Steps indicator"></div>
+        <div class="footnote">
+          let's Do Somting Good By Finshing Doated Line
+        </div>
+      </div>
+
+      <!-- LOGIN -->
+      <section id="screen-login" class="card">
+        <h1>Welcome back 👋</h1>
+        <p class="muted">
+          Login to earn money and help the planet. Your action keeps our city clean.
+        </p>
+
+        <img class="hero"
+             src="https://images.unsplash.com/photo-1455218873509-8097305ee378?q=80&w=1400&auto=format&fit=crop"
+             alt="Green forest">
+
+        <div class="poem">
+          “हर टुकड़ा जो तुम रीसायकल करते हो, धरती उतनी ही मुस्कुराती है।”
+        </div>
+
+        <div class="grid grid-2 mt-16">
+          <div class="field">
+            <label>Email</label>
+            <input type="text" id="loginEmail" placeholder="you@example.com"/>
+          </div>
+
+          <div class="field">
+            <label>Password</label>
+            <input type="password" id="loginPass" placeholder="••••••••"/>
+          </div>
+        </div>
+
+        <div class="between mt-16">
+          <div class="footnote">Tip: Use any demo credentials.</div>
+
+          <div class="row">
+            <button class="btn secondary slim" id="btnDemo">Use Demo</button>
+            <button class="btn" id="btnLogin">Login</button>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- LOCATION -->
+      <section id="screen-location" class="card hidden">
+        <h1>Select your location 📍</h1>
+
+        <p class="muted">
+          We show rates & pickup options for your area. Clean streets start with smart choices.
+        </p>
+
+        <img class="hero"
+             src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1400&auto=format&fit=crop"
+             alt="Clean city park">
+
+        <div class="poem">
+          “शहर की गली हो या चौक, स्वच्छता से ही बनेगा लोक।”
+        </div>
+
+        <div class="grid grid-2 mt-16">
+
+          <div class="field">
+            <label>City</label>
+
+            <select id="city">
+              <option value="">Choose…</option>
+              <option>Mumbai</option>
+              <option>Pune</option>
+              <option>Delhi</option>
+              <option>Bengaluru</option>
+              <option>Hyderabad</option>
+              <option>Kolkata</option>
+              <option>Chennai</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Pincode</label>
+            <input type="text"
+                   id="pincode"
+                   placeholder="e.g., 400001"
+                   inputmode="numeric"
+                   maxlength="6">
+          </div>
+
+          <div class="field" style="grid-column:1/-1">
+            <label>Address</label>
+            <input type="text"
+                   id="address"
+                   placeholder="House/Flat, Street, Area">
+          </div>
+
+        </div>
+
+        <div class="notice mt-12">
+          <strong>Segregation Tip:</strong>
+          घर पर ही अलग रखें — <em>plastic</em>, <em>glass</em>,
+          <em>metal</em>, <em>paper</em>, <em>e-waste</em>.
+          इससे रीसायकल दर बढ़ती है और कीमत भी बेहतर मिलती है।
+        </div>
+
+        <div class="between mt-16">
+
+          <div class="row">
+            <button class="btn ghost slim" id="btnGeo">Use GPS</button>
+            <span class="footnote">or fill manually</span>
+          </div>
+        <div class="row">
+  <button class="btn ghost slim" id="btnGeo">Use GPS</button>
+  <span class="footnote">or fill manually</span>
+</div>
+
+
+<!-- GOOGLE MAP -->
+<div id="mapBox" class="map-box hidden">
+
+  <div class="between">
+    <strong>📍 Select / Search Location</strong>
+
+    <button class="btn ghost slim" id="btnCloseMap" type="button">
+      Close Map
+    </button>
+  </div>
+
+  <div class="map-search mt-12">
+    <input
+      type="text"
+      id="mapSearch"
+      placeholder="Search location e.g. Wai, Pune"
+    >
+
+    <button class="btn slim" id="btnMapSearch" type="button">
+      Search
+    </button>
+  </div>
+
+  <iframe
+    id="mapFrame"
+    src="https://www.google.com/maps?q=Pune%2C%20India&output=embed"
+    loading="lazy"
+    allowfullscreen>
+  </iframe>
+
+  <div class="row mt-12">
+    <button class="btn secondary slim" id="btnOpenGoogleMaps" type="button">
+      Open in Google Maps ↗
+    </button>
+  </div>
+
+</div>
+
+
+<div class="row">
+  <button class="btn secondary" data-prev>Back</button>
+  <button class="btn" data-next>Next</button>
+</div>
+          <div class="row">
+            <button class="btn secondary" data-prev>Back</button>
+            <button class="btn" data-next>Next</button>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- TYPES -->
+      <section id="screen-types" class="card hidden">
+
+        <h1>Select scrap types ♻️</h1>
+
+        <p class="muted">
+          Choose one or many. Better segregation = cleaner nature + clearer pricing.
+        </p>
+
+        <img class="hero"
+             src="https://images.unsplash.com/photo-1520975651881-6c0a72b45d3b?q=80&w=1400&auto=format&fit=crop"
+             alt="Segregated bins">
+
+        <div class="poem">
+          “कचरे का सही उपयोग करो, धरती का सम्मान करो।”
+        </div>
+
+        <div class="chips mt-16" id="typeChips"></div>
+
+        <div class="notice mt-12">
+          <strong>Highlight:</strong>
+          E-waste (chargers, phones) अलग रखें;
+          टूटे कांच को सुरक्षित पैक करें;
+          गीले-कचरे से सूखा-कचरा अलग रखें।
+        </div>
+
+        <div class="between mt-16">
+
+          <div class="footnote">
+            You can choose more than one.
+          </div>
+
+          <div class="row">
+            <button class="btn secondary" data-prev>Back</button>
+            <button class="btn" data-next id="btnTypesNext">Next</button>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- WEIGHTS -->
+      <section id="screen-weights" class="card hidden">
+
+        <h1>Enter weights (in kg) ⚖️</h1>
+
+        <p class="muted">
+          Fill weight only for the types you selected. Estimates are fine.
+        </p>
+
+        <img class="hero"
+             src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1400&auto=format&fit=crop"
+             alt="Forest stream">
+
+        <div class="poem">
+          “थोड़ा-सा प्रयास, बड़ा-सा बदलाव — पुनर्चक्रण से बने उज्ज्वल कल।”
+        </div>
+
+        <div id="weightsContainer" class="grid grid-2 mt-16"></div>
+
+        <div class="between mt-16">
+
+          <div class="footnote">
+            Example: 2.5 kg Electronics
+          </div>
+
+          <div class="row">
+            <button class="btn secondary" data-prev>Back</button>
+            <button class="btn" data-next id="btnWeightsNext">Next</button>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- PRICES -->
+      <section id="screen-prices" class="card hidden">
+
+        <div class="between">
+          <h1>Best offers for your scrap 💸</h1>
+          <span class="pill" id="summaryBadge">0 kg • ₹0</span>
+        </div>
+
+        <p class="muted">
+          Sorted highest → lowest across platforms. Earn fairly, recycle responsibly.
+        </p>
+
+        <img class="hero"
+             src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1400&auto=format&fit=crop"
+             alt="Sunlit leaves">
+
+        <div class="poem">
+          “कमाओ भी, बचाओ भी — प्रकृति के साथ चलो अभी।”
+        </div>
+
+        <div class="notice mt-12">
+          Real sites block cross-site auto-submit for security.
+          We’ll open the chosen platform in a new tab with your details in the URL (simulation).
+        </div>
+
+        <table class="table mt-16"
+               id="pricesTable"
+               aria-label="Price comparison table">
+
+          <thead>
+            <tr>
+              <th>Choose</th>
+              <th>Platform</th>
+              <th>City Coverage</th>
+              <th>Rate Highlights</th>
+              <th>Total (₹)</th>
+            </tr>
+          </thead>
+
+          <tbody id="pricesBody"></tbody>
+
+        </table>
+
+        <div class="between mt-16">
+
+          <button class="btn secondary" data-prev>Back</button>
+
+          <div class="row">
+            <button class="btn ghost"
+                    id="btnLearn"
+                    title="Recycling journey">
+              Learn: Recycling Journey
+            </button>
+
+            <button class="btn ghost"
+                    id="btnRecalc"
+                    title="Recalculate">
+              Recalculate
+            </button>
+
+            <button class="btn"
+                    id="btnGoSelect">
+              Proceed
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- AWARENESS 1 -->
+      <section id="screen-edu-process" class="card hidden">
+
+        <h1>🔄 How Recycling Works</h1>
+
+        <p class="muted">
+          Journey from scrap to useful material.
+        </p>
+
+        <img class="hero"
+             src="https://images.unsplash.com/photo-1592982537447-7440770cbfc5?q=80&w=1400&auto=format&fit=crop"
+             alt="Recycling conveyor">
+
+        <div class="poem">
+          “कचरा नहीं, संसाधन है — सही राह मिले तो निधान है।”
+        </div>
+
+        <div class="grid mt-16">
+
+          <div class="notice">
+
+            <strong>1) Collection & Sorting:</strong>
+            Plastic / Glass / E-waste / Metal अलग.<br>
+
+            <strong>2) Cleaning:</strong>
+            Wash, de-label, remove contaminants.<br>
+
+            <strong>3) Processing:</strong>
+            Melt / crush / repulp / extract metals (e-waste).<br>
+
+            <strong>4) Manufacturing:</strong>
+            Pellets / sheets / ingots → new products.
+
+          </div>
+
+          <div class="gallery">
+
+            <img src="https://images.unsplash.com/photo-1520975922321-8d8e6d1d2a12?q=80&w=1200&auto=format&fit=crop"
+                 alt="Plastic sorting">
+
+            <img src="https://images.unsplash.com/photo-1579547945413-497e1b99dac0?q=80&w=1200&auto=format&fit=crop"
+                 alt="Glass cullet">
+
+            <img src="https://images.unsplash.com/photo-1604328698692-cf88b1c00d1e?q=80&w=1200&auto=format&fit=crop"
+                 alt="Metal recycling">
+
+          </div>
+        </div>
+
+        <div class="between mt-16">
+
+          <button class="btn secondary" id="btnBackToPrices1">
+            Back to Prices
+          </button>
+
+          <div class="row">
+
+            <button class="btn ghost" id="btnLearnNext">
+              Next: Where It Goes
+            </button>
+
+            <button class="btn" id="btnProceedFromEdu1">
+              Proceed
+            </button>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- AWARENESS 2 -->
+      <section id="screen-edu-usage" class="card hidden">
+
+        <h1>🌍 Where It Goes & How It’s Used</h1>
+
+        <p class="muted">
+          Recycled material replaces virgin resources — saving energy & emissions.
+        </p>
+
+        <img class="hero"
+             src="https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=1400&auto=format&fit=crop"
+             alt="Green valley">
+
+        <div class="poem">
+          “कचरे को सोना बनाओ, धरती का आभार जताओ।”
+        </div>
+
+        <div class="grid mt-16">
+
+          <ul class="footnote" style="font-size:14px; line-height:1.6">
+
+            <li>
+              <strong>Plastic:</strong>
+              Pellets → buckets, benches, bins.
+            </li>
+
+            <li>
+              <strong>Glass:</strong>
+              Cullet → jars, tiles, construction mix.
+            </li>
+
+            <li>
+              <strong>E-waste:</strong>
+              Copper/Al/rare metals → new components.
+            </li>
+
+            <li>
+              <strong>Metal:</strong>
+              Ingots → appliances, tools, auto parts.
+            </li>
+
+            <li>
+              <strong>Paper:</strong>
+              Repulp → packaging, notebooks, tissue.
+            </li>
+
+          </ul>
+
+          <div class="gallery">
+
+            <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop"
+                 alt="Metal ingots">
+
+            <img src="https://images.unsplash.com/photo-1520975651881-6c0a72b45d3b?q=80&w=1200&auto=format&fit=crop"
+                 alt="Recycled benches">
+
+            <iframe src="https://www.youtube.com/embed/6jQ7y_qQYUA"
+                    title="Recycling explained"></iframe>
+
+            <iframe src="https://www.youtube.com/embed/3gYz-lF8XbQ"
+                    title="How plastic recycling works"></iframe>
+
+          </div>
+        </div>
+
+        <div class="between mt-16">
+
+          <button class="btn secondary" id="btnBackToProcess">
+            Back
+          </button>
+
+          <div class="row">
+
+            <button class="btn ghost" id="btnBackToPrices2">
+              Back to Prices
+            </button>
+
+            <button class="btn" id="btnProceedFromEdu2">
+              Proceed
+            </button>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- PLATFORM SELECT -->
+      <section id="screen-platforms" class="card hidden">
+
+        <h1>Choose a platform to continue 🔗</h1>
+
+        <p class="muted">
+          Tap a platform to proceed. We’ll pass your details to that site in the URL.
+        </p>
+
+        <img class="hero"
+             src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1400&auto=format&fit=crop"
+             alt="Nature hills">
+
+        <div class="poem">
+          “सही मंच, सही मूल्य — प्रकृति और जेब दोनों खुश।”
+        </div>
+
+        <div id="platformCards" class="grid mt-16"></div>
+
+        <div class="policy mt-16">
+
+          <h3 style="margin:0 0 8px">
+            ABOUT SELLING (Important)
+          </h3>
+
+          <ul class="footnote" style="font-size:13px; line-height:1.7">
+
+            <li>
+              Sell करना पूरी तरह <strong>आपकी choice</strong> है —
+              हम किसी पर <strong>जबरदस्ती</strong> नहीं करते।
+            </li>
+
+            <li>
+              हम केवल comparison और redirection देते हैं;
+              <strong>payment</strong> आपको
+              <strong>चुने हुए platform</strong> से ही मिलेगा
+              (उनकी terms के अनुसार)।
+            </li>
+
+            <li>
+              Rates indicative हैं; final pickup time,
+              quality/segregation और platform की policy से बदल सकते हैं.
+            </li>
+
+            <li>
+              Hazardous items (bio-waste, chemicals,
+              batteries without safety) को अलग guidelines के साथ ही दें.
+            </li>
+
+          </ul>
+
+          <label style="display:flex; align-items:center; gap:10px; margin-top:10px">
+
+            <input type="checkbox" id="agreePolicy">
+
+            <span>I understand and agree to the above.</span>
+
+          </label>
+
+        </div>
+
+        <div class="between mt-16">
+
+          <button class="btn secondary" id="btnBackToPrices3">
+            Back to Prices
+          </button>
+
+          <div class="row">
+            <button class="btn" id="btnOpenSelected">
+              Open Selected Platform
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- EXTERNAL -->
+      <section id="screen-external" class="card hidden center">
+
+        <h1>Redirected to platform 🔗</h1>
+
+        <p class="muted">
+          We opened the platform in a new tab with your details in the URL.
+          Complete their steps.
+        </p>
+
+        <img class="hero"
+             src="https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?q=80&w=1400&auto=format&fit=crop"
+             alt="Clean lake">
+
+        <div class="poem">
+          “आज की स्वच्छ पसंद, कल की सुरक्षित धरा।”
+        </div>
+
+        <div class="mt-16">
+          <span class="footnote">
+            Did you successfully sell your scrap?
+          </span>
+        </div>
+
+        <div class="row center mt-16"
+             style="justify-content:center">
+
+          <button class="btn secondary" data-prev>
+            Go Back
+          </button>
+
+          <button class="btn" id="btnMarkSold">
+            Yes, Mark as Sold
+          </button>
+
+        </div>
+      </section>
+
+
+      <!-- DONE -->
+      <section id="screen-done" class="card hidden center">
+
+        <span class="pill">Success</span>
+
+        <h1 class="mt-12">
+          Your scrap sale is confirmed 🎉
+        </h1>
+
+        <p class="muted">
+          Thanks for choosing us — you earned money and helped keep nature clean. 🌿
+        </p>
+
+        <img class="hero"
+             src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=1400&auto=format&fit=crop"
+             alt="Hands holding sapling">
+
+        <div class="poem">
+          “धन्यवाद तुम्हारा, पर्यावरण को बचाने में जो योगदान दिया।<br>
+          तुम्हारे छोटे कदम से, धरती मुस्कुराएगी सदा。”
+        </div>
+
+        <div class="grid grid-2 mt-16" id="receipt"></div>
+
+        <div class="row center mt-24"
+             style="justify-content:center">
+
+          <button class="btn" id="btnStartOver">
+            Start New Sale
+          </button>
+
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="center mt-24 footnote">
+      Built for college practicals • Front-end only • © Scrap Collector
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
